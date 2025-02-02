@@ -107,7 +107,7 @@ export default async function Video({ params }: PageProps) {
         '@type': 'Article',
         headline: `Bokep ${file.title}`,
         image: file.splash_img,
-        description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma`;
+        description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma`,
         url: `https://bociltocil.pages.dev/v/${file.filecode}`,
         datePublished: new Date(
             file.uploaded + ".000Z"
