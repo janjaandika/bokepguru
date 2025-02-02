@@ -41,7 +41,7 @@ export async function generateMetadata(
 
     const file = data.result[0];
     const title = `${file.title}`;
-    const description = `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma hijab abg colmek film tante hot`;
+    const description = `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma`;
     const image = file.splash_img;
     const previousOgImages = (await parent).openGraph?.images || [];
     const previousTwImages = (await parent).twitter?.images || [];
@@ -82,67 +82,59 @@ export default async function Video({ params }: PageProps) {
     }
 
     const file = data.result[0];
-const jsonLd = {
+	const jsonLd = {
         '@context': 'https://schema.org',
-        '@type': 'VideoObject',
+        '@type': 'WebPage',
         name: `${file.title}`,
-        thumbnailUrl: file.splash_img,
-        description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma hijab abg colmek film tante hot`,
-        url: `https://bokepguru.pages.dev/v/${file.filecode}`,
-        embedUrl: `https://doodstream.com/e/${file.filecode}`,
-        uploadDate: new Date(
-            file.uploaded + ".000Z"
-        ).toISOString(),
-        interactionStatistic: {
-            '@type': `InteractionCounter`,
-                userInteractionCount: `${file.views}`,
-            interactionType: {
-                '@type': `WatchAction`,
-                target: `https://bokepguru.pages.dev/v/${file.filecode}`
-            }  
-        }
-        }
-        const jsonLd2 = {
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: `${file.title}`,
         image: file.splash_img,
-        description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma hijab abg colmek film tante hot`,
-        url: `https://bokepguru.pages.dev/v/${file.filecode}`,
+        description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma`;
+        url: `https://abgsquirt.pages.dev/v/${file.filecode}`,
         datePublished: new Date(
             file.uploaded + ".000Z"
         ).toISOString(),
         publisher: {
             '@type': 'Organization',
             name: `${SITENAME}`,
-            logo: 'https://bokepguru.pages.dev/favicon.ico'},
+            logo: 'https://abgsquirt.pages.dev/favicon.ico'},
             author: {
                 '@type': 'Person',
                 name: 'admin',
-                url: 'https://bokepguru.pages.dev'
-              },
-        interactionStatistic: {
-            '@type': `InteractionCounter`,
-                userInteractionCount: `${file.views}`,
-            interactionType: {
-                '@type': `ReadAction`,
-                target: `https://bokepguru.pages.dev/v/${file.filecode}`
-            }  
+                url: 'https://abgsquirt.pages.dev'
+              }
         }
+        const jsonLd2 = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: `Bokep ${file.title}`,
+        image: file.splash_img,
+        description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma`;
+        url: `https://bociltocil.pages.dev/v/${file.filecode}`,
+        datePublished: new Date(
+            file.uploaded + ".000Z"
+        ).toISOString(),
+        publisher: {
+            '@type': 'Organization',
+            name: `${SITENAME}`,
+            logo: 'https://bociltocil.pages.dev/favicon.ico'},
+            author: {
+                '@type': 'Person',
+                name: 'admin',
+                url: 'https://bociltocil.pages.dev'
+              }
         }
-        const jsonLd3 = {
-            '@context': 'https://schema.org', 
-            '@type': 'Book', 
-            'name': `${file.title}`, 
-            'aggregateRating': {
-            '@type': 'AggregateRating',	
-                'ratingValue': '5',	
-                'ratingCount': `${file.views}`,	
-                'bestRating': '5',	
-                'worstRating': '1' }
-        }
+        
     return (
-        <div className="grid col-span-full gap-4 md:gap-4 md:mx-10">
+        <div className="grid col-span-full gap-4 md:gap-4 md:mx-10" itemProp="video" itemScope itemType="http://schema.org/VideoObject">
+<meta itemProp="author" content="admin" />
+<meta itemProp="name" content={`${file.title}`} />
+<meta itemProp="description" content={`${file.title}`} />
+<meta itemProp="description" content={`${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma`} />
+<meta itemProp="duration" content={`${file.length}`} />
+<meta itemProp="thumbnailUrl" content={`${file.splash_img}`} />
+<meta itemProp="embedURL" content={`https://doodstream.com/e/${file.filecode}`} />
+<meta itemProp="uploadDate" content={`${new Date(
+            file.uploaded + ".000Z"
+        ).toISOString()}`} />
         <section>
         {/* Add JSON-LD to your page */}
         <script
@@ -152,10 +144,6 @@ const jsonLd = {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd2) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd3) }}
         />
         {/* ... */}
         </section>
